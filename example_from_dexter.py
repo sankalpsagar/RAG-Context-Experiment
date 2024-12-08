@@ -1,7 +1,7 @@
 from dexter.config.constants import Split
 from dexter.data.datastructures.hyperparameters.dpr import DenseHyperParams
 from dexter.data.loaders.RetrieverDataset import RetrieverDataset
-from dexter.retriever.dense.ANCE import ANCE
+# from dexter.retriever.dense.ANCE import ANCE
 from dexter.retriever.dense.Contriever import Contriever
 from dexter.utils.metrics.SimilarityMatch import CosineSimilarity
 from dexter.utils.metrics.retrieval.RetrievalMetrics import RetrievalMetrics
@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # You can set the split to one of Split.DEV, Split.TEST or Split.TRAIN
     # Setting tokenizer=None only loads only the raw data processed into our standard data classes, if tokenizer is set, the data is also tokenized and stored in the loader.
-    loader = RetrieverDataset("ambignq","ambignq-corpus",
+    loader = RetrieverDataset("wikimultihopqa","wikimultihopqa-corpus",
                               "config.ini", Split.DEV,tokenizer=None)
 
     # Initialize your retriever configuration
