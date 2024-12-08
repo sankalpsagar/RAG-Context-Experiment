@@ -1,6 +1,7 @@
 from dexter.config.constants import Split
 from dexter.data.datastructures.hyperparameters.dpr import DenseHyperParams
 from dexter.data.loaders.RetrieverDataset import RetrieverDataset
+from dexter.llms.flant5_engine import FlanT5Engine
 # from dexter.retriever.dense.ANCE import ANCE
 from dexter.retriever.dense.Contriever import Contriever
 from dexter.utils.metrics.ExactMatch import ExactMatch
@@ -14,7 +15,7 @@ if __name__ == "__main__":
 
     # You can set the split to one of Split.DEV, Split.TEST or Split.TRAIN
     # Setting tokenizer=None only loads only the raw data processed into our standard data classes, if tokenizer is set, the data is also tokenized and stored in the loader.
-    loader = RetrieverDataset("wikimultihopqa","wikimultihopqa-corpus",
+    loader = RetrieverDataset("wikimultihopqatest","wikimultihopqatest-corpus",
                               "config.ini", Split.TEST,tokenizer=None)
 
     # Initialize your retriever configuration
@@ -28,15 +29,13 @@ if __name__ == "__main__":
     #Perform Retrieval
     contrvr_search = Contriever(config_instance)
     similarity_measure = CosineSimilarity()
-    response = contrvr_search.retrieve(corpus,queries,2,similarity_measure,chunk=True,chunksize=40)
+    response = contrvr_search.retrieve(corpus,queries,5,similarity_measure,chunk=True,chunksize=40000)
 
-
-    #Evaluate retrieval metrics
-    # metrics = RetrievalMetrics(k_values=[1,3,5])
     metric = ExactMatch()
-    # metric.evaluate()
     print(response)
     print(qrels)
+    flant5 = FlanT5Engine(response)
+    flant5.get_flant5_completion("Hey")
     for i in qrels.keys():
         qrel_key_list = list(qrels[i].keys())
         response_key_list = list(response[i].keys())
@@ -44,13 +43,13 @@ if __name__ == "__main__":
         print(response_key_list)
         new_qrel_list = list()
         new_response_list = list()
-        for j in range(len(qrel_key_list)): # todo check range if correct
+        for j in range(len(qrel_key_list)):
             new_qrel_list.append(corpus[int(qrel_key_list[j])].text())
-        for j in range(len(response_key_list)): # todo check range if correct
+        for j in range(len(response_key_list)):
             new_response_list.append(corpus[int(response_key_list[j])].text())
 
         score = metric.evaluate(new_qrel_list, new_response_list)
-        print("score", score)
+        print(f"score for query-id: {i}", score)
     # metric.evaluate()
     # temp = metrics.evaluate_retrieval(qrels=qrels,results=response)
 
