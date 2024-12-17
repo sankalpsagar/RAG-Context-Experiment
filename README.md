@@ -20,6 +20,8 @@ I copied [libstdc++.so.6.0.29](../../anaconda3/lib/libstdc%2B%2B.so.6.0.29)
 to [libstdc++.so.6.0.29](../../anaconda3/envs/NLP-project/lib/libstdc%2B%2B.so.6.0.29)
 To get it working for me
 
+# link for the pickle files:
+https://tud365-my.sharepoint.com/:f:/g/personal/sankalpsagar_tudelft_nl/EmV-kwrk-rdPn4JqoWWHIgsBzC8Un2gaxbpbGTvkEDLapA?e=0sEwVh
 
 # some links:
 https://pypi.org/project/dexter-cqa/
