@@ -3,10 +3,10 @@ import json
 import csv
 
 data = None
-with open('../output_json_qrels_train2.json', 'r') as file:
+with open('../output_json_qrels_dev.json', 'r') as file:
     data = json.load(file)
 
-with open('../output_query_id_to_new_id_train2.json', 'r') as file:
+with open('./output_query_id_to_new_id_dev.json', 'r') as file:
     query_id_to_new_id = json.load(file)
 
 
@@ -23,7 +23,7 @@ for index, item in enumerate(data):
             'relevance': value,
         })
 # <query_id> 0 <doc_id> <relevance>
-with open('output_qrels_train2.tsv', 'w') as output_file:
+with open('output_qrels_dev.tsv', 'w') as output_file:
     dict_write = csv.DictWriter(output_file, data_changed[0].keys(), delimiter='\t')
     # dict_write.writeheader()
     dict_write.writerows(data_changed)
