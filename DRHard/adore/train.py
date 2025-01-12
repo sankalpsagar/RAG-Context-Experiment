@@ -302,7 +302,7 @@ def main():
     logger.info(f"load from {args.init_path}")
     config = RobertaConfig.from_pretrained(args.init_path)
     model = RobertaDot.from_pretrained(args.init_path, config=config)
-
+    print(args.model_device)
     model.to(args.model_device)
     logger.info("Training/evaluation parameters %s", args)
     
@@ -311,4 +311,5 @@ def main():
     
 
 if __name__ == "__main__":
+    print(torch.cuda.is_available())
     main()
