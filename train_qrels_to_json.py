@@ -31,6 +31,8 @@ if __name__ == "__main__":
 
     with open('output_json_qrels_train.json', 'w') as output_file:
         json.dump(qrels, output_file)
+    with open('output_json_queries_train.json', 'w') as output_file:
+        json.dump(queries, output_file)
         # dict_write = csv.DictWriter(output_file, data_changed[0].keys(), delimiter='\t')
     # dict_write.writeheader()
     # dict_write.writerows(data_changed)
