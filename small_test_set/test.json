@@ -1,0 +1,34 @@
+[{
+  "_id": "8a65901a0bdb11eba7f7acde48001122",
+  "type": "compositional",
+  "question": "Which country the director of film One Law For The Woman is from?",
+  "context": [
+    [
+      "Dell Henderson",
+      [
+        "George Delbert \"Dell\" Henderson (July 5, 1877 \u2013 December 2, 1956) was a Canadian-American actor, director, and writer.",
+        "He began his long and prolific film career in the early days of silent film."
+      ]
+    ]
+  ],
+  "supporting_facts": [],
+  "evidences": [],
+  "answer": ""
+},
+  {
+    "_id": "8a65901a0bdb11eba7f7acde48001121",
+    "type": "compositional",
+    "question": "Which country the director of film One Law For The Woman is from?",
+    "context": [
+      [
+        "Dell Henderson",
+        [
+          "George Delbert \"Dell\" Henderson (July 5, 1877 \u2013 December 2, 1956) was a Canadian-American actor, director, and writer.",
+          "He began his long and prolific film career in the early days of silent film."
+        ]
+      ]
+    ],
+    "supporting_facts": [],
+    "evidences": [],
+    "answer": ""
+  }]
