@@ -6,6 +6,10 @@
 - after preprocess i call STAR inference (model from the github repo) to cacluate the passages.mmep, I only did this once, because if im correct, this only encodes the passages from the corpus and is hopefully not dependant on the queries or qrels, i used max length as defined on the githbub repo
 - with this i ran the adore training with 6 epochs
 
+# Extra notes
+- I also deleted tabs and enters because tsv format could not deal with that 
+
+
 # step 2
 - I got 1200 dev questions from the dev.json with qrels from the loader from dextercqa
 - create a queries.tsv and qrels.tsv with new ids for the queries in both files because the code fromm Adore does not support ids that are not integers
