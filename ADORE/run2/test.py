@@ -13,13 +13,13 @@ import pandas as pd
 # convert query ids to the real ids with the output_query_id_to_new_id.tsv
 #
 query_id_to_new_id = None
-with open('../data_from_adore/6 epochs test/output_query_id_to_new_id.json', 'r') as file:
+with open('../dataset_1_dev/output_query_id_to_new_id_dev.json', 'r') as file:
     query_id_to_new_id = json.load(file)
 
 inv_map_query_id = {value: key for key, value in query_id_to_new_id.items()}
 # tsv_file = None
 new_data = {}
-with open("../data_from_adore/6 epochs test/dev.rank.tsv") as file:
+with open("./dev.rank.tsv") as file:
     tsv_file = csv.reader(file, delimiter="\t")
 
     for line in tsv_file:
@@ -31,8 +31,7 @@ with open("../data_from_adore/6 epochs test/dev.rank.tsv") as file:
             new_data[the_id] = []
         new_data[the_id].append({'doc_id': doc_id, 'rank': rank})
 
-# data=pd.read_csv('../data_from_adore/6 epochs test/dev.rank.tsv',sep='\t', header=None)
-# data_dict = data.to_dict()
+
 data_dev = None
 with open('../../dataset/dev.json', 'r') as file:
     data_dev = json.load(file)
@@ -46,16 +45,6 @@ corpus_data = None
 with open('../../dataset/wiki_musique_corpus.json', 'r') as file:
     corpus_data = json.load(file)
 
-# for index, item in enumerate(new_data):
-#     print(item)
-# for id in data[0]
-
-# loader = RetrieverDataset("wikimultihopqa", "wikimultihopqa-corpus",
-#                           "config.ini", Split.DEV, tokenizer=None)
-# queries, qrels, corpus = loader.qrels()
-# todo i think I need to manually import the corpus and queries since it only takes the first 1200 and idk if that works out everytime without errors
-
-
 response = {}
 similarity_measure = ExactMatch()
 
@@ -66,9 +55,7 @@ mismatches = 0
 ids = []
 count = 0
 raw_data = []
-flant5 = FlanT5Engine([], model_name="google/flan-t5-small")
-
-# flant5 = FlanT5Engine([]) # todo maybe not empty todo probably initialize outside the loop
+flant5 = FlanT5Engine([]) # todo is it okay that data is an empty array here
 for index_key, key in enumerate(new_data.keys()):
     print(index_key)
     documents_dev = []

@@ -275,14 +275,14 @@ def preprocess(args):
         #     "2019qrels-docs.txt",
         #     "test-query",
         #     "test-qrel.tsv")
-        # write_query_rel(
-        #     args,
-        #     pid2offset,
-        #     "dev-qid2offset.pickle",
-        #     "msmarco-docdev-queries.tsv",
-        #     "msmarco-docdev-qrels.tsv",
-        #     "dev-query",
-        #     "dev-qrel.tsv")
+        write_query_rel(
+            args,
+            pid2offset,
+            "dev-qid2offset.pickle",
+            "msmarco-docdev-queries.tsv",
+            "msmarco-docdev-qrels.tsv",
+            "dev-query",
+            "dev-qrel.tsv")
         # write_query_rel(
         #     args,
         #     pid2offset,
@@ -301,14 +301,14 @@ def preprocess(args):
             "train-query",
             "train-qrel.tsv")
         
-        # write_query_rel(
-        #     args,
-        #     pid2offset,
-        #     "dev-qid2offset.pickle",
-        #     "queries.dev.small.tsv",
-        #     "qrels.dev.small.tsv",
-        #     "dev-query",
-        #     "dev-qrel.tsv")
+        write_query_rel(
+            args,
+            pid2offset,
+            "dev-qid2offset.pickle",
+            "queries.dev.small.tsv",
+            "qrels.dev.small.tsv",
+            "dev-query",
+            "dev-qrel.tsv")
     
         # write_query_rel(
         #     args,
