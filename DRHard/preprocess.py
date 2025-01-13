@@ -258,14 +258,14 @@ def preprocess(args):
     
     if args.data_type == 0:
         
-        # write_query_rel(
-        #     args,
-        #     pid2offset,
-        #     "train-qid2offset.pickle",
-        #     "msmarco-doctrain-queries.tsv",
-        #     "msmarco-doctrain-qrels.tsv",
-        #     "train-query",
-        #     "train-qrel.tsv")
+        write_query_rel(
+            args,
+            pid2offset,
+            "train-qid2offset.pickle",
+            "msmarco-doctrain-queries.tsv",
+            "msmarco-doctrain-qrels.tsv",
+            "train-query",
+            "train-qrel.tsv")
         #
         # write_query_rel(
         #     args,
@@ -292,14 +292,14 @@ def preprocess(args):
         #     "lead-query",
         #     None)
     else:
-        # write_query_rel(
-        #     args,
-        #     pid2offset,
-        #     "train-qid2offset.pickle",
-        #     "queries.train.tsv",
-        #     "qrels.train.tsv",
-        #     "train-query",
-        #     "train-qrel.tsv")
+        write_query_rel(
+            args,
+            pid2offset,
+            "train-qid2offset.pickle",
+            "queries.train.tsv",
+            "qrels.train.tsv",
+            "train-query",
+            "train-qrel.tsv")
         
         write_query_rel(
             args,
