@@ -3,7 +3,7 @@ download dataset from:
 https://drive.google.com/drive/folders/1qIZcNcU2wtiJNr3BUyX2GIUtnHEfbQDi?usp=sharing
 and put the files in a folder called dataset in the root
 
-download teh corpus:
+download the corpus:
 https://drive.google.com/drive/folders/1aQAfNLq6HB0w4_fVnKMBvKA6cXJGRTpH?usp=sharing
 and put the file in a folder called dataset in the root
 
